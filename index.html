@@ -3,7 +3,7 @@ html_content = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS2 Config Generator - alanix</title>
+    <title>CS2 Config Generator - qwix</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@ html_content = """<!DOCTYPE html>
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             animation: fadeIn 0.8s ease-out;
         }
@@ -94,7 +94,7 @@ html_content = """<!DOCTYPE html>
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -147,14 +147,14 @@ html_content = """<!DOCTYPE html>
         }
 
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .form-group label {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--text-muted);
             transition: color 0.2s;
@@ -171,10 +171,10 @@ html_content = """<!DOCTYPE html>
             font-family: 'JetBrains Mono', monospace;
             padding: 8px 12px;
             border-radius: 6px;
-            width: 130px;
+            width: 150px;
             text-align: right;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             outline: none;
             transition: all 0.25s;
         }
@@ -231,10 +231,6 @@ html_content = """<!DOCTYPE html>
             transform: rotate(30deg) translateY(100%);
         }
 
-        .btn:active {
-            transform: translateY(1px);
-        }
-
         .btn-secondary {
             background: linear-gradient(135deg, var(--accent-cyan) 0%, #0072ff 100%);
             box-shadow: 0 4px 20px var(--accent-cyan-glow);
@@ -271,7 +267,7 @@ html_content = """<!DOCTYPE html>
 
         textarea {
             width: 100%;
-            height: 380px;
+            height: 450px;
             background-color: var(--code-bg);
             color: #2ed573;
             font-family: 'JetBrains Mono', monospace;
@@ -290,7 +286,6 @@ html_content = """<!DOCTYPE html>
             border-color: var(--accent-cyan);
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -321,13 +316,13 @@ html_content = """<!DOCTYPE html>
 <div class="container">
     <header>
         <h1>CS2 Config Generator</h1>
-        <p>Zaawansowany edytor konfiguracji CS2 dla gracza <strong>alanix</strong></p>
+        <p>Kompletny generator konfiguracji CS2 dla gracza <strong>qwix</strong></p>
     </header>
 
     <div class="grid">
         <!-- Mysz i Sterowanie -->
         <div class="card">
-            <h2>⚡ Sterowanie</h2>
+            <h2>⚡ Myszy i Celowanie</h2>
             <div class="form-group">
                 <label for="sensitivity">Sensitivity</label>
                 <input type="text" id="sensitivity" value="2.500000">
@@ -351,7 +346,7 @@ html_content = """<!DOCTYPE html>
             <h2>🎯 Celownik</h2>
             <div class="form-group">
                 <label for="cl_crosshair_recode">Kod celownika</label>
-                <input type="text" id="cl_crosshair_recode" value="CSkHu7GPytmUYYQ3eKk84eVhwtFrLFaRFmr8FUXvXb8pqj" style="width: 140px; font-size: 0.75rem;">
+                <input type="text" id="cl_crosshair_recode" value="CSkHu7GPytmUYYQ3eKk84eVhwtFrLFaRFmr8FUXvXb8pqj" style="width: 160px; font-size: 0.75rem;">
             </div>
             <div class="form-group">
                 <label for="cl_crosshairsize">Rozmiar (size)</label>
@@ -364,6 +359,52 @@ html_content = """<!DOCTYPE html>
             <div class="form-group">
                 <label for="cl_crosshairthickness">Grubość (thickness)</label>
                 <input type="text" id="cl_crosshairthickness" value="0.900000">
+            </div>
+            <div class="form-group">
+                <label for="cl_crosshairalpha">Przezroczystość (alpha)</label>
+                <input type="text" id="cl_crosshairalpha" value="250">
+            </div>
+        </div>
+
+        <!-- Gra / HUD / Radar -->
+        <div class="card">
+            <h2>📊 Gra / HUD / Radar</h2>
+            <div class="form-group">
+                <label for="cl_hud_color">Kolor HUD</label>
+                <input type="text" id="cl_hud_color" value="1">
+            </div>
+            <div class="form-group">
+                <label for="hud_scaling">Skalowanie HUD</label>
+                <input type="text" id="hud_scaling" value="0.95">
+            </div>
+            <div class="form-group">
+                <label for="cl_radar_scale">Skala Radaru</label>
+                <input type="text" id="cl_radar_scale" value="0.7">
+            </div>
+            <div class="form-group">
+                <label for="cl_radar_always_centered">Centrowanie Radaru</label>
+                <input type="text" id="cl_radar_always_centered" value="1">
+            </div>
+        </div>
+
+        <!-- Wydajność, Viewmodel & Gracze -->
+        <div class="card">
+            <h2>🚀 Grafika & Profil</h2>
+            <div class="form-group">
+                <label for="name">Nick w grze</label>
+                <input type="text" id="name" value="qwix">
+            </div>
+            <div class="form-group">
+                <label for="fps_max">Max FPS (Gra)</label>
+                <input type="text" id="fps_max" value="600">
+            </div>
+            <div class="form-group">
+                <label for="fps_max_ui">Max FPS (Menu)</label>
+                <input type="text" id="fps_max_ui" value="200">
+            </div>
+            <div class="form-group">
+                <label for="viewmodel_fov">Viewmodel FOV</label>
+                <input type="text" id="viewmodel_fov" value="60.000000">
             </div>
         </div>
 
@@ -388,24 +429,24 @@ html_content = """<!DOCTYPE html>
             </div>
         </div>
 
-        <!-- Wydajność i Viewmodel -->
+        <!-- Bindy Klawiszy -->
         <div class="card">
-            <h2>🚀 Wydajność & Nick</h2>
+            <h2>⌨️ Przypisania Klawiszy</h2>
             <div class="form-group">
-                <label for="fps_max">Max FPS (Gra)</label>
-                <input type="text" id="fps_max" value="600">
+                <label for="bind_e">Użyj (+use)</label>
+                <input type="text" id="bind_e" value="e">
             </div>
             <div class="form-group">
-                <label for="fps_max_ui">Max FPS (Menu)</label>
-                <input type="text" id="fps_max_ui" value="200">
+                <label for="bind_k">Głos (+voicerecord)</label>
+                <input type="text" id="bind_k" value="k">
             </div>
             <div class="form-group">
-                <label for="viewmodel_fov">Viewmodel FOV</label>
-                <input type="text" id="viewmodel_fov" value="60.000000">
+                <label for="bind_b">Szybkie EQ (+quickinv)</label>
+                <input type="text" id="bind_b" value="b">
             </div>
             <div class="form-group">
-                <label for="name">Nick w grze</label>
-                <input type="text" id="name" value="alanix">
+                <label for="bind_t">Sklep (buymenu)</label>
+                <input type="text" id="bind_t" value="t">
             </div>
         </div>
     </div>
@@ -416,7 +457,7 @@ html_content = """<!DOCTYPE html>
 
     <div class="output-section">
         <div class="output-header">
-            <h2>💻 Podgląd i Pobieranie</h2>
+            <h2>💻 Podgląd i Pobieranie Autoexec</h2>
             <button class="btn btn-secondary" onclick="downloadConfig()">💾 Pobierz plik .cfg</button>
         </div>
         <textarea id="config-output" readonly></textarea>
@@ -434,16 +475,27 @@ html_content = """<!DOCTYPE html>
         const size = document.getElementById('cl_crosshairsize').value;
         const gap = document.getElementById('cl_crosshairgap').value;
         const thickness = document.getElementById('cl_crosshairthickness').value;
+        const alpha = document.getElementById('cl_crosshairalpha').value;
         
+        const hudColor = document.getElementById('cl_hud_color').value;
+        const hudScale = document.getElementById('hud_scaling').value;
+        const radarScale = document.getElementById('cl_radar_scale').value;
+        const radarCentered = document.getElementById('cl_radar_always_centered').value;
+
+        const name = document.getElementById('name').value;
+        const fps = document.getElementById('fps_max').value;
+        const fpsUi = document.getElementById('fps_max_ui').value;
+        const fov = document.getElementById('viewmodel_fov').value;
+
         const vol = document.getElementById('volume').value;
         const menuVol = document.getElementById('snd_menumusic_volume').value;
         const tenSec = document.getElementById('snd_tensecondwarning_volume').value;
         const mvpVol = document.getElementById('snd_mvp_volume').value;
-        
-        const fps = document.getElementById('fps_max').value;
-        const fpsUi = document.getElementById('fps_max_ui').value;
-        const fov = document.getElementById('viewmodel_fov').value;
-        const name = document.getElementById('name').value;
+
+        const bindE = document.getElementById('bind_e').value;
+        const bindK = document.getElementById('bind_k').value;
+        const bindB = document.getElementById('bind_b').value;
+        const bindT = document.getElementById('bind_t').value;
 
         const configText = `// ===========================================================
 //           PEŁNY KOMPLETNY CONFIG (AUTOEXEC) CS2           
@@ -457,10 +509,10 @@ zoom_sensitivity_ratio "${zoomSens}"
 cl_crosshair_recode "${code}"
 
 // --- GRA / HUD / RADAR ---
-cl_hud_color "1"
-hud_scaling "0.95"
-cl_radar_scale "0.7"
-cl_radar_always_centered "1"
+cl_hud_color "${hudColor}"
+hud_scaling "${hudScale}"
+cl_radar_scale "${radarScale}"
+cl_radar_always_centered "${radarCentered}"
 cl_radar_rotate "1"
 cl_radar_icon_scale_min "0.6"
 cl_radar_square_with_scoreboard "1"
@@ -481,23 +533,86 @@ snd_mapobjective_volume "0.20"
 snd_tensecondwarning_volume "${tenSec}"
 snd_deathcamera_volume "0.40"
 
-// --- POZOSTAŁE ZMIENNE ---
-"cl_crosshairsize" "${size}"
+// --- POZOSTAŁE ODNALEZIONE ZMIENNE Z GRY ---
+"cl_buymenu_ct_nextround_high" "5000"
+"cl_buymenu_ct_nextround_low" "1400"
+"cl_buymenu_t_nextround_high" "5000"
+"cl_buymenu_t_nextround_low" "1400"
+"cl_buywheel_donate_key" "0"
+"cl_buywheel_nonumberpurchasing" "false"
+"cl_crosshair_drawoutline" "false"
+"cl_crosshair_dynamic_maxdist_splitratio" "0.300000"
+"cl_crosshair_dynamic_splitalpha_innermod" "1.000000"
+"cl_crosshair_dynamic_splitalpha_outermod" "0.500000"
+"cl_crosshair_dynamic_splitdist" "7"
+"cl_crosshair_outlinethickness" "1.000000"
+"cl_crosshair_recoil" "false"
+"cl_crosshair_sniper_width" "1"
+"cl_crosshair_t" "false"
+"cl_crosshairalpha" "${alpha}"
+"cl_crosshaircolor" "5"
+"cl_crosshaircolor_b" "0"
+"cl_crosshaircolor_g" "255"
+"cl_crosshaircolor_r" "0"
+"cl_crosshairdot" "false"
 "cl_crosshairgap" "${gap}"
+"cl_crosshairgap_useweaponvalue" "false"
+"cl_crosshairsize" "${size}"
+"cl_crosshairstyle" "4"
 "cl_crosshairthickness" "${thickness}"
+"cl_crosshairusealpha" "true"
+"cl_debounce_zoom" "true"
+"cl_fixedcrosshairgap" "3.000000"
+"cl_grenadecrosshair_decoy" "true"
+"cl_grenadecrosshair_explosive" "true"
+"cl_grenadecrosshair_fire" "true"
+"cl_grenadecrosshair_flash" "true"
+"cl_grenadecrosshair_keepusercrosshair" "true"
+"cl_grenadecrosshair_smoke" "true"
+"cl_grenadecrosshairdelay_decoy" "2.000000"
+"cl_grenadecrosshairdelay_explosive" "2.000000"
+"cl_grenadecrosshairdelay_fire" "2.000000"
+"cl_grenadecrosshairdelay_flash" "2.000000"
+"cl_grenadecrosshairdelay_smoke" "2.000000"
+"cl_inventory_radial_immediate_select" "true"
+"cl_inventory_radial_tap_to_cycle" "true"
+"cl_mouselook" "true"
+"cl_prefer_lefthanded" "false"
+"cl_showloadout" "false"
+"cl_silencer_mode" "1"
+"cl_sniper_auto_rezoom" "true"
+"cl_use_opens_buy_menu" "false"
+"con_enable" "true"
+"crosshair" "true"
+"hud_showtargetid" "true"
+"input_button_code_is_scan_code_scd" "true"
 "m_pitch" "${mPitch}"
 "m_yaw" "${mYaw}"
 "name" "${name}"
+"option_duck_method" "false"
+"option_speed_method" "false"
+"player_nevershow_communityservermessage" "1"
+"player_teamplayedlast" "2"
+"skill" "1"
 "viewmodel_fov" "${fov}"
+"viewmodel_offset_x" "1.000000"
+"viewmodel_offset_y" "1.000000"
+"viewmodel_offset_z" "-1.000000"
+"voice_vox" "0"
 
-// --- BINDY ---
-bind "t" "buymenu"
+// --- WSZYSTKIE TWOJE BINDY I PRZYPISANIA KLAWISZY ---
+bind "${bindT}" "buymenu"
+bind "u" "<unbound>"
 bind "MOUSE1" "+attack"
-bind "b" "+quickinv"
-bind "e" "+use"
+bind "z" "<unbound>"
+bind "0" "slot11"
+bind "${bindB}" "+quickinv"
+bind "${bindE}" "+use"
 bind "y" "messagemode"
-bind "k" "+voicerecord"
+bind "${bindK}" "+voicerecord"
+bind "MOUSE4" "<unbound>"
 bind "i" "show_loadout_toggle"
+bind "MWHEELUP" "<unbound>"
 bind "o" "radio"
 bind "l" "radio2"
 bind "m" "radio1"
@@ -534,7 +649,7 @@ host_writeconfig`;
 </html>
 """
 
-with open("index-v2.html", "w", encoding="utf-8") as f:
+with open("index-qwix.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("Nowa wersja strony wygenerowana.")
+print("Pomyślnie utworzono pełną stronę dla nicku qwix ze wszystkimi parametrami.")
